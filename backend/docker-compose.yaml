@@ -1,0 +1,38 @@
+version: "3"
+services:
+  chad-user:
+    container_name: chad-user
+    image: node:carbon
+    command: bash -c "npm install -g nodemon && npm install && npm start"
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - SERVER_PORT=3000
+      - AUTH_SECRET
+      - DB_HOST=http://db
+      - DB_PORT=5432
+      - DB_DATABASE=talon 
+      - DB_USER=talon
+      - DB_PASSWORD=changeme
+    ports:
+      - "8020:3000"
+      - "3229:9229"
+    depends_on:
+      - db
+      
+  db:
+    container_name: db
+    image: docker.io/postgres:10-alpine
+    # Change that password, of course!
+    environment:
+      - POSTGRES_USER=talon
+      - POSTGRES_PASSWORD=changeme
+    ports:
+      - 5432:5432
+    volumes:
+      # You may store the database tables in a local folder..
+      - ./schemas:/var/lib/postgresql/data
+      # .. or store them on some high performance storage for better results
+      # - /path/to/ssd/storage:/var/lib/postfesql/data

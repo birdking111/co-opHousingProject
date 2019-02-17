@@ -1,0 +1,123 @@
+{
+  "name": "pawl-user",
+  "version": "0.4.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "debug": "node --inspect-brk=0.0.0.0 app.js",
+    "test": "ava"
+  },
+  "dependencies": {
+    "boom": "^7.2.0",
+    "dotenv": "^6.0.0",
+    "hapi": "^17.5.2",
+    "hapi-auth-basic": "^5.0.0",
+    "hapi-auth-cookie": "^9.0.0",
+    "hapi-auth-jwt2": "^8.1.0",
+    "joi": "^13.6.0",
+    "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.10",
+    "pg-promise": "^8.4.5",
+    "request": "^2.88.0",
+    "sequelize": "^4.38.0",
+    "tedious": "^2.6.4",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "ava": "^1.0.0-beta.8",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "gulp": "^4.0.0",
+    "gulp-ava": "^0.19.0",
+    "gulp-eslint": "^4.0.2",
+    "gulp-if": "^2.0.2",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-plumber": "^1.2.0",
+    "nyc": "^12.0.2",
+    "sinon": "^6.1.4",
+    "yargs": "^12.0.1"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js"
+    ],
+    "sources": [
+      "**/*.js"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "parserOptions": {
+      "sourceType": "script"
+    },
+    "extends": "airbnb-base",
+    "rules": {
+      "indent": [
+        "error",
+        4
+      ],
+      "no-shadow": [
+        "error",
+        {
+          "allow": [
+            "cb",
+            "err",
+            "done",
+            "it"
+          ]
+        }
+      ],
+      "max-len": [
+        "warn",
+        100
+      ],
+      "strict": [
+        "error",
+        "global"
+      ],
+      "no-console": [
+        "off"
+      ],
+      "no-underscore-dangle": [
+        "off"
+      ],
+      "no-param-reassign": [
+        "warn"
+      ],
+      "no-plusplus": [
+        "error",
+        {
+          "allowForLoopAfterthoughts": true
+        }
+      ],
+      "arrow-parens": [
+        "off"
+      ],
+      "object-shorthand": [
+        "error",
+        "consistent"
+      ],
+      "no-new": [
+        "off"
+      ],
+      "no-prototype-builtins": [
+        "off"
+      ],
+      "no-else-return": [
+        "warn"
+      ],
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": [
+            "gulp-tasks/**/*.js",
+            "test/**/*.js"
+          ]
+        }
+      ]
+    }
+  }
+}
