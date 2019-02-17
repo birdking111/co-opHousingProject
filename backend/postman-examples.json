@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "386a1e63-9cb0-4e64-a64b-e4c89fd1a7db",
+		"name": "Pawl",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "b9403951-3cb6-4eec-9b9b-0f97acf3baf3",
+			"name": "My User Information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{ROOT_URL}}/users/me",
+					"host": [
+						"{{ROOT_URL}}"
+					],
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "f63ee499-9146-4911-bcf9-f1587fbfc5b5",
+			"name": "Login w/ Password and Email",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{PASSWORD}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USERNAME}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{ROOT_URL}}/login",
+					"host": [
+						"{{ROOT_URL}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "9b6f6ff2-83a9-4d50-96a5-203fed843274",
+			"name": "Register Account w/ Email and Password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"{{USERNAME}}\",\n\t\"password\": \"{{PASSWORD}}\",\n\t\"given_name\": \"Nicholas\",\n\t\"family_name\": \"Dedenbach\"\n}"
+				},
+				"url": {
+					"raw": "{{ROOT_URL}}/register",
+					"host": [
+						"{{ROOT_URL}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "9b4a7abf-cb78-423b-b349-a044c6bddc4c",
+			"name": "Send Reset Password Email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"{{USERNAME}}\"\n}"
+				},
+				"url": {
+					"raw": "{{ROOT_URL}}/reset-password",
+					"host": [
+						"{{ROOT_URL}}"
+					],
+					"path": [
+						"reset-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "e85b9b48-6273-4e65-b069-864c69e40c06",
+			"name": "Request Garmin Oauth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"{{USERNAME}}\"\n}"
+				},
+				"url": {
+					"raw": "{{ROOT_URL}}/garmin/oauth/request",
+					"host": [
+						"{{ROOT_URL}}"
+					],
+					"path": [
+						"garmin",
+						"oauth",
+						"request"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
