@@ -1,5 +1,10 @@
 export class Housing {
     id: number;
     name: string;
-    address: string;
+    street: string;
+    city: string;
+    state: string;
+    zip: number;
+    coop: string;
+    rent: number;
 }
