@@ -1,3 +1,15 @@
-<p>
-  housing-search works!
-</p>
+<div class="container">
+  <div class="mb-4">
+    <h4>Filter By:</h4>
+    <label>City: <input class="mr-4" type="text" ng-model="housing.city"/></label>
+    <label>Coop Company: <input class="mr-4" type="text" ngmodel="housing.coop"/></label>
+    <label>Max Rent: <input class="mr-4" type="text" ngmodel="housing.rent"/></label>
+  </div>
+
+  <h4>Results:</h4>
+  <ul class="list-unstyled ml-4" *ngFor="let housing of housingList">
+    <li><b>{{housing.name}}</b></li>
+    <li>{{housing.street}}, {{housing.city}}, {{housing.zip}}</li>
+    <li>${{housing.rent}}/month</li>
+  </ul>  
+</div>
